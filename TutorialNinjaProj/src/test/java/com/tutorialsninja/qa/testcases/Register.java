@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tutorialNinja.qa.util.Utilities;
+import com.tutorialsninja.qa.base.Base;
 
 import java.time.Duration;
 import java.util.Date;
@@ -15,19 +16,15 @@ import java.util.Date;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Register {
+public class Register extends Base {
 	WebDriver driver;
 	@BeforeMethod
 	public void setUp() {
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-		driver.get("https://tutorialsninja.com/demo/");
+		driver = initializeBrowserAndOpenApplicationURL(prop.getProperty("browserName"));
 		driver.findElement(By.xpath("//span[text()='My Account']")).click();
 		driver.findElement(By.linkText("Register")).click();
-		
-	}
+		}
+	
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
@@ -38,7 +35,7 @@ public class Register {
 		driver.findElement(By.id("input-lastname")).sendKeys("Dhak");
 		driver.findElement(By.id("input-email")).sendKeys(Utilities.generateEmailWithTimeStamp());
 		driver.findElement(By.id("input-telephone")).sendKeys("9999999999");
-		driver.findElement(By.id("input-password")).sendKeys("Santosh01@");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("password"));
 		driver.findElement(By.id("input-confirm")).sendKeys("Santosh01@");
 		driver.findElement(By.name("agree")).click();
 		driver.findElement(By.xpath("//input[@value='Continue']")).click();
@@ -53,8 +50,8 @@ public class Register {
 		driver.findElement(By.id("input-lastname")).sendKeys("Dhak");
 		driver.findElement(By.id("input-email")).sendKeys(Utilities.generateEmailWithTimeStamp());
 		driver.findElement(By.id("input-telephone")).sendKeys("9999999999");
-		driver.findElement(By.id("input-password")).sendKeys("Santosh01@");
-		driver.findElement(By.id("input-confirm")).sendKeys("Santosh01@");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("password"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("password"));
 		//driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
 		//driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();)
 		driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
@@ -71,8 +68,8 @@ public class Register {
 		driver.findElement(By.id("input-lastname")).sendKeys("Dhak");
 		driver.findElement(By.id("input-email")).sendKeys("dhaknesush1@gmail.com");
 		driver.findElement(By.id("input-telephone")).sendKeys("9999999999");
-		driver.findElement(By.id("input-password")).sendKeys("Santosh01@");
-		driver.findElement(By.id("input-confirm")).sendKeys("Santosh01@");
+		driver.findElement(By.id("input-password")).sendKeys(prop.getProperty("password"));
+		driver.findElement(By.id("input-confirm")).sendKeys(prop.getProperty("password"));
 		//driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
 		//driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
 		driver.findElement(By.xpath("//input[@name='newsletter'][@value='1']")).click();
@@ -98,7 +95,7 @@ public class Register {
 		Assert.assertEquals(acutalTelephoneWarning,"Telephone must be between 3 and 32 characters!", "Telephone Warning Message Is Not Displayed");
 		String acutalPasswordWarning = driver.findElement(By.xpath("//input[@id='input-password']/following-sibling::div")).getText();
 		Assert.assertEquals(acutalPasswordWarning,"Password must be between 4 and 20 characters!", "Password Warning Message Is Not Displayed");
-				
+	
 	}
 		
 	

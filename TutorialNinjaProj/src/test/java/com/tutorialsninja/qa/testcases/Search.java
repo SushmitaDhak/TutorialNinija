@@ -1,3 +1,4 @@
+
 package com.tutorialsninja.qa.testcases;
 
 import org.openqa.selenium.By;
@@ -13,7 +14,7 @@ public class Search extends Base{
 	WebDriver driver;
 	@BeforeMethod
 	public void setUp() {
-		driver = intilizeBrowserAndOpenApplicationURL("chrome");
+		driver = initializeBrowserAndOpenApplicationURL("chrome");
 	}
 	@AfterMethod
 	public void tearDown() {
