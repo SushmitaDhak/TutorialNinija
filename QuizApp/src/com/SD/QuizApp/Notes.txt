@@ -1,0 +1,27 @@
+Which Statement is true about java ? 
+a) Java is sequence - dependent Programming Language
+b) Java is Code - dependent Programming Language
+c) Java is Platform - dependent Programming Language
+D) Java is Platform - Independent Programming Language
+What is the extension of java code files ?
+a) .js
+b) .txt
+c) .class
+d) .java
+Who Inverted Java Programming ?
+a) Guido Van Rossum
+b) James Gossling
+c) Dennis Ritchie
+d) Bjarane Stroustrup
+Which one of the following is not Java feature ?.
+a) Object-Oriented
+b) Use Of Pointers
+c) Portable
+d) Dynamic And Extensible
+Which of these cannot be used for a variable name in Java ?
+a) identifier & keyword 
+b) identifier
+c) Keyword
+d) None of the above
+
+
